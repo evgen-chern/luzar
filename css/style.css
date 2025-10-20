@@ -1113,7 +1113,7 @@ body.lock {
 .header {
   padding: 17px 0 0 0;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 4;
@@ -1341,6 +1341,7 @@ body.lock {
   line-height: 100%;
   text-transform: uppercase;
   color: #000;
+  font-style: normal;
 }
 
 .hero .hero__description h1 span {
@@ -1349,6 +1350,7 @@ body.lock {
   font-family: "TT-Travels-Next-Trial-Variable", sans-serif;
   font-weight: 704;
   font-size: 35px;
+  font-style: normal;
   line-height: 120%;
 }
 
@@ -1356,7 +1358,7 @@ body.lock {
   font-family: "TT-Carville", sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 100%;
+  line-height: normal;
   color: #000;
   margin: 32px 0 69px 0;
 }
@@ -1415,6 +1417,7 @@ body.lock {
 
 .product__categories .product__categories_head h3 {
   font-family: "TT-Travels-Next-Trial-Variable", sans-serif;
+  font-style: normal;
   color: #3A8DDE;
   margin: 16px 0 32px 0;
   font-size: 35px;
@@ -1424,6 +1427,7 @@ body.lock {
 }
 
 .product__categories .product__categories_list {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1509,9 +1513,12 @@ body.lock {
 }
 
 .product__categories .product__categories_list .item .item__description {
+  position: absolute;
+  top: 0;
+  left: calc(50% + 18px);
   opacity: 0;
   height: 0;
-  max-height: 444.63px;
+  max-height: 100%;
   width: 50%;
   background: #fff;
   padding: 24px;
@@ -1579,6 +1586,7 @@ body.lock {
   letter-spacing: 0.26px;
   font-weight: 704;
   font-family: "TT-Travels-Next-Trial-Variable", sans-serif;
+  font-style: normal;
   margin: 0 0 32px 0;
 }
 
@@ -1642,6 +1650,7 @@ body.lock {
   letter-spacing: 0.26px;
   font-weight: 704;
   font-family: "TT-Travels-Next-Trial-Variable", sans-serif;
+  font-style: normal;
   margin: 0 0 32px 0;
 }
 
@@ -1823,6 +1832,7 @@ footer .footer__items .footer__about_company {
   }
 
   .product__categories .product__categories_list .item .item__description {
+    position: unset;
     width: 100%;
     border-radius: 0 0 10px 10px;
     padding: 0;
@@ -1916,6 +1926,14 @@ footer .footer__items .footer__about_company {
     display: block;
   }
 
+  .hero .hero__description {
+    padding: 6px 0 0 0;
+  }
+
+  .hero .hero__description p br {
+    display: none;
+  }
+
   .hero .hero__image {
     top: 0;
   }
@@ -1926,7 +1944,7 @@ footer .footer__items .footer__about_company {
     width: 100%;
   }
 
-  .hero .hero__advantages svg {
+  .hero .hero__advantages img {
     height: 63px;
     width: 100%;
   }
@@ -1954,6 +1972,7 @@ footer .footer__items .footer__about_company {
 
   .product__categories .product__categories_list .item .item__description h4 {
     font-size: 18px;
+    margin: 0 0 16px 0;
   }
 
   .video h2 {

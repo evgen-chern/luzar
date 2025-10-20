@@ -2,51 +2,78 @@ window.addEventListener('DOMContentLoaded', function() {
 
     const swiperProductContainer = document.querySelector('.product__catalog_list');
     if (swiperProductContainer) {
-        const swiperMedia = () => new Swiper(swiperProductContainer, {
-            slidesPerView: 1,
-            grid: {
-                rows: 2,
-                fill: 'row'
-            },
-            autoHeight: false,
-            initialSlide: 0,
-            spaceBetween: 16,
-            loop: false,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            // autoplay: {
-            //     delay: 3000,
-            // },
-            speed: 600,
-            breakpoints: {
-                // when window width is >= 1024px
-                1023: {
-                    slidesPerView: 1.5
-                },
-                1279: {
-                    slidesPerView: 2,
-                }
-            }
-        });
-
-
         let mySwiper;
-
 
         const initSwiper = () => {
             const nextButton = document.querySelector(".swiper-button-next");
             const prevButton = document.querySelector(".swiper-button-prev");
-            if (window.innerWidth > 767 && !mySwiper) {
-                mySwiper = swiperMedia();
+            const isMobile = window.innerWidth <= 1279;
+
+            let slidesPerView = 1.2;
+            if (!isMobile) {
+                slidesPerView = 2;
+            }
+
+            if (window.innerWidth > 767) {
+                if (!mySwiper) {
+                    mySwiper = new Swiper(swiperProductContainer, {
+                        slidesPerView: slidesPerView,
+                        grid: {
+                            rows: 2,
+                            fill: 'row'
+                        },
+                        autoHeight: false,
+                        initialSlide: 0,
+                        spaceBetween: 16,
+                        loop: false,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        speed: 600,
+                    });
+                    if (nextButton) nextButton.style.display = 'flex';
+                    if (prevButton) prevButton.style.display = 'flex';
+
+                } else {
+                    mySwiper.params.slidesPerView = slidesPerView;
+                    mySwiper.update();
+                    if (nextButton) nextButton.style.display = 'flex';
+                    if (prevButton) prevButton.style.display = 'flex';
+                }
+            } else {
+                if (mySwiper) {
+                    mySwiper.destroy();
+                    mySwiper = null;
+                    if (nextButton) nextButton.style.display = 'none';
+                    if (prevButton) prevButton.style.display = 'none';
+                }
+            }
+
+
+            if(window.innerWidth <= 1279 && window.innerWidth > 767 && !mySwiper){
+                let slidesPerView = 1;
+                if (!isMobile) {
+                    slidesPerView = 2;
+                }
+                mySwiper = new Swiper(swiperProductContainer, {
+                    slidesPerView: slidesPerView,
+                    grid: {
+                        rows: 2,
+                        fill: 'row'
+                    },
+                    autoHeight: false,
+                    initialSlide: 0,
+                    spaceBetween: 16,
+                    loop: false,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    speed: 600,
+                });
                 if (nextButton) nextButton.style.display = 'flex';
                 if (prevButton) prevButton.style.display = 'flex';
-            } else if (window.innerWidth <= 767 && mySwiper) {
-                mySwiper.destroy();
-                mySwiper = null;
-                if (nextButton) nextButton.style.display = 'none';
-                if (prevButton) prevButton.style.display = 'none';
             }
         };
 
@@ -79,10 +106,10 @@ window.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
-            this.classList.toggle('active');
+            this.classList.add('active');
             const nextElement = this.nextElementSibling;
             if (nextElement) {
-                nextElement.classList.toggle('active');
+                nextElement.classList.add('active');
             }
         });
     });
