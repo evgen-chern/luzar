@@ -1754,9 +1754,9 @@ footer .footer__items {
   display: grid;
   -ms-grid-columns: (1fr)[4];
   grid-template-columns: repeat(4, 1fr);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 footer .footer__items .footer__info {
@@ -1781,6 +1781,37 @@ footer .footer__items .footer__about_company {
   color: #fff;
   font-size: 13px;
   line-height: 140%;
+}
+
+footer .footer__items .footer__about_company a {
+  color: #F9F9F9;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 19px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 6px 16px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1030px;
+  background: #3A8DDE;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 28px 0 0 0;
+  -webkit-transition: 0.1s all;
+  -o-transition: 0.1s all;
+  transition: 0.1s all;
+  border: 1px solid #3A8DDE;
+}
+
+footer .footer__items .footer__about_company a:hover {
+  background: #204a8f;
 }
 
 @media all and (max-width: 1279px) {
