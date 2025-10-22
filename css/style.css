@@ -1136,7 +1136,7 @@ body.lock {
       -ms-flex-align: center;
           align-items: center;
   background: #FFFFFF;
-  padding: 13px 50px 13px 16px;
+  padding: 12px 50px 12px 16px;
 }
 
 .header .header__wrapper .logo {
@@ -1436,6 +1436,7 @@ body.lock {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 9px;
+  max-height: 630.25px;
 }
 
 .product__categories .product__categories_list .item {
@@ -1444,6 +1445,7 @@ body.lock {
   display: flex;
   gap: 18px;
   width: 100%;
+  overflow-y: hidden;
 }
 
 .product__categories .product__categories_list .item .item__head {
@@ -1486,8 +1488,7 @@ body.lock {
 
 .product__categories .product__categories_list .item .item__head img {
   opacity: 0;
-  height: 0;
-  display: block;
+  display: none;
   width: 100%;
   border-radius: 7px;
   -webkit-transition: all 0.1s;
@@ -1500,6 +1501,7 @@ body.lock {
 }
 
 .product__categories .product__categories_list .item .item__head.active img {
+  display: block;
   opacity: 1;
   height: 100%;
 }
@@ -1706,6 +1708,9 @@ body.lock {
   display: block;
   width: 100%;
   max-width: 250px;
+  height: 188px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
 
@@ -1814,15 +1819,25 @@ footer .footer__items .footer__about_company a:hover {
   background: #204a8f;
 }
 
+@media all and (max-width: 2000px) {
+  .hero .hero__image {
+    right: -283px;
+  }
+}
+
+@media all and (max-width: 1700px) {
+  .hero .hero__image {
+    right: -500px;
+  }
+}
+
 @media all and (max-width: 1279px) {
   body.lock {
     padding-right: 0;
   }
 
   .hero .hero__image {
-    max-height: 500px;
-    bottom: 0;
-    top: 25%;
+    right: -700px;
   }
 
   .product__categories {
@@ -1901,11 +1916,13 @@ footer .footer__items .footer__about_company a:hover {
   .hero .hero__image {
     position: relative;
     top: -38px;
+    right: -163px;
+    max-height: 400px;
   }
 
   .hero .hero__advantages {
     position: absolute;
-    bottom: -83px;
+    bottom: -53px;
     margin: 0 0 0 0;
     z-index: 3;
   }
@@ -1932,6 +1949,12 @@ footer .footer__items .footer__about_company a:hover {
 
   footer .footer__items .footer__about_company {
     margin: 15px 0 0 0;
+  }
+}
+
+@media all and (max-width: 819px) {
+  .hero .hero__advantages {
+    bottom: -23px;
   }
 }
 
@@ -1971,6 +1994,8 @@ footer .footer__items .footer__about_company a:hover {
 
   .hero .hero__image {
     top: 0;
+    right: 0;
+    max-height: 500px;
   }
 
   .hero .hero__advantages {
@@ -2069,6 +2094,7 @@ footer .footer__items .footer__about_company a:hover {
 
   .product__catalog .product__catalog_list .catalog__item img {
     max-width: 100%;
+    height: 100%;
   }
 
   .product__catalog .product__catalog_list .catalog__item .catalog__item_description {
