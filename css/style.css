@@ -1566,8 +1566,8 @@ body.lock {
 }
 
 .product__categories .product__categories_list .item .item__description.active {
-  opacity: 1;
   height: 100%;
+  opacity: 1;
 }
 
 .video {
@@ -1846,6 +1846,10 @@ footer .footer__items .footer__about_company a:hover {
     padding: 48px 0 0 0;
   }
 
+  .product__categories .product__categories_list {
+    max-height: 795.25px;
+  }
+
   .product__categories .product__categories_list .item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1886,11 +1890,17 @@ footer .footer__items .footer__about_company a:hover {
     width: 100%;
     border-radius: 0 0 10px 10px;
     padding: 0;
-    max-height: 250px;
+    height: auto;
+    max-height: 0;
+    -webkit-transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+    -o-transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
   }
 
   .product__categories .product__categories_list .item .item__description.active {
+    height: auto;
     padding: 16px;
+    max-height: 350px;
   }
 }
 
