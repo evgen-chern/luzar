@@ -116,19 +116,40 @@ window.addEventListener('DOMContentLoaded', function() {
 
     const videoContainer = document.querySelector('.video__container');
     const videoPreview = document.querySelector('.video__preview');
+    const videoSrc = videoContainer.dataset.src;
 
     videoPreview.addEventListener('click', function() {
 
-        const iframe = document.createElement('iframe');
-        iframe.src = "https://vkvideo.ru/video_ext.php?oid=-31350907&id=456239100&hash=6be9f44d65d35250";
-        iframe.frameborder = "0";
-        iframe.allowfullscreen = "1";
-        iframe.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
-        iframe.style.borderRadius = "10px";
+        // const iframe = document.createElement('iframe');
+        // iframe.src = "https://vkvideo.ru/video_ext.php?oid=-31350907&id=456239100&hash=6be9f44d65d35250";
+        // iframe.frameborder = "0";
+        // iframe.allowfullscreen = "1";
+        // iframe.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+        // iframe.style.borderRadius = "10px";
 
         // Заменяем превью на iframe
-        videoContainer.innerHTML = ''; // Очищаем контейнер
-        videoContainer.appendChild(iframe); // Добавляем iframe
+        // videoContainer.innerHTML = ''; // Очищаем контейнер
+        // videoContainer.appendChild(iframe); // Добавляем iframe
+
+        // Создаем видео
+        const video = document.createElement('video');
+        video.preload = "auto";
+        video.autoplay = true;
+        video.muted = false;
+        video.loop = true;
+        video.controls = true;
+
+        // Создаем источник видео
+        const source = document.createElement('source');
+        source.type = "video/mp4";
+        source.src = videoSrc;
+
+        // Добавляем источник к видео
+        video.appendChild(source);
+
+        // Очищаем контейнер и добавляем видео
+        videoContainer.innerHTML = '';
+        videoContainer.appendChild(video);
     });
 
 })
